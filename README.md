@@ -13,5 +13,5 @@
         - ```db.getCollection("db_collection_name").find( <field_to_find>, <only_needed_field> )``` get all matching data from db_collection with limited field(s)
         - ```db.getCollection("db_collection_name").find( <field_to_find> ).project( <only_needed_field> )``` get all matching data from db_collection with limited field(s)
         - ```db.getCollection("db_collection_name").find( <field_to_find>, <only_needed_field> )``` get all matching data from db_collection with limited field(s)
-        - **_projection()_** method only works with **_find()_** method. Field filtering using **_project()_** method cannot be used with **_findOne()_** method
+        - **_projection()_** method only works with **_find()_** method. To use field filtering with **_findOne()_** method we need to use the first filtering method.
     - all data or query parameter must be in **_JSON_** format
