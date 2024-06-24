@@ -13,5 +13,16 @@
     - ```db.getCollection("db_collection_name").find( <field_to_find>, <only_needed_field> )``` get all matching data from db_collection with limited field(s)
     - ```db.getCollection("db_collection_name").find( <field_to_find> ).project( <only_needed_field> )``` get all matching data from db_collection with limited field(s)
     - ```db.getCollection("db_collection_name").find( <field_to_find>, <only_needed_field> )``` get all matching data from db_collection with limited field(s)
-    - **_projection()_** method only works with **_find()_** method. To use field filtering with **_findOne()_** method we need to use the first filtering method.
-- all data or query parameter must be in **_JSON_** format
+- **_projection()_** method only works with **_find()_** method. To use field filtering with **_findOne()_** method we need to use the first filtering method.
+- All data or query parameter must be in **_JSON_** format
+- MongoDB Operators
+    - **_Whenever we use an operator an extra bracket is used_** ```{<field>: {$eq: <value>}}```
+    - Operators
+        - $eq --> Equal
+        - $ne --> Not equal
+        - $gt --> Grater than
+        - $gte --> Grater than equal
+        - $lt --> Less than
+        - $lte --> Less than equal
+- **_sort()_** method is used to sort search results
+    - **_sort(<field>: 1)_** --> _field: on which field the sort will apply_ and _1: ascending order_
