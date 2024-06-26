@@ -37,13 +37,18 @@
                 gender: "Female",
                 age: { $nin: [18, 20, 22, 24, 26, 28, 30] },
                 interests: {$in: ["Cooking", "Gaming"]}
-            }, {age: 1, gender: 1, interests: 1})
-            .sort({age: 1})
+            }, {
+                age: 1,
+                gender: 1,
+                interests: 1}
+            ).sort({age: 1})
     ```
+
 - Explicit **$and**
+    - Give all the document matches all the conditions inside **$and** 
 ```tsx
 db.test.find({
-        $and: [
+    $and: [
         { gender: "Female" },
         { age: { $gt: 15 } },
         { age: { $lte: 25 } }
@@ -55,7 +60,9 @@ db.test.find({
     age: 1
 })
 ```
+
 - Explicit **$or**
+    - Give all the document matches any of the conditions inside **$or** 
 ```tsx
 db.test.find({
     $or: [
@@ -66,7 +73,9 @@ db.test.find({
     interests: 1
 })
 ```
+
 - Query in array of object using chaining
+    - Must use **Quotation Mark ("")** to make it string for chaining in query over _array of object_ or _object value object_
 ```jsx
 db.test.find({
     "skills.name": { $in: ["JAVASCRIPT", "PYTHON"]}
@@ -78,3 +87,16 @@ db.test.find({
     age:1
 })
 ```
+
+- More Operators
+    - _$exists_ --> Give all documents having or not having a specific field
+        - Value of $exists is boolean
+        - **true** -> have the property
+        - **false** -> do not have the property
+        - ```db.test.find({company: { $exists: true }})```
+        - ```db.test.find({company: { $exists: false }})```
+    - _$type_ --> Check and Give type matched document
+        - ```db.test.find({age: { $type: "string" }})```
+    - _$size_ ---> Check and Give the matched size documents
+        - Only work on array field value
+        - ```db.test.find({friends: { $size: 4 }})```
