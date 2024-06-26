@@ -24,5 +24,19 @@
         - $gte --> Grater than equal
         - $lt --> Less than
         - $lte --> Less than equal
+        - $in --> give all matching data matching in an array
+        - $nin --> give all un-matching data matching in an array
 - **_sort()_** method is used to sort search results
     - **_sort(<field>: 1)_** --> _field: on which field the sort will apply_ and _1: ascending order_
+- To combine multiple condition, use comma (,) between two condition inside operator curly bracket **{}**
+    - implicit AND
+    - ```db.test.find({gender: "Female", age: { $gte: 18, $lte: 30 }}).sort({age: 1})```
+    - ```tsx
+        db.test.find(
+    {
+        gender: "Female",
+        age: { $nin: [18, 20, 22, 24, 26, 28, 30] },
+        interests: {$in: ["Cooking", "Gaming"]}
+    }, {age: 1, gender: 1, interests: 1})
+    .sort({age: 1})
+    ```
