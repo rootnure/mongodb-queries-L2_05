@@ -100,3 +100,9 @@ db.test.find({
     - _$size_ ---> Check and Give the matched size documents
         - Only work on array field value
         - ```db.test.find({friends: { $size: 4 }})```
+
+- Array Query, Object Query, Array of Object Query
+    - _$all_ --> Give all the matched documents (do not check order)
+        - ```db.test.find({ interests: { $all: ["Cooking", "Writing", "Reading"] } })```
+    - _$elemMatch_ --> Give all the matched documents (exact matched within single object)
+        - ```db.test.find({ skills: { $elemMatch: { level: "Beginner", name: "JAVASCRIPT", } } })```
