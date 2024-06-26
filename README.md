@@ -132,3 +132,13 @@ db.test.find({
             - ```{ $push: { interests: "Gaming" } }```
         - add multiple value
             - ```{ $push: { interests: { $each: ["Reading", "Writing"] } } }```
+
+- Delete Operations
+    - _$unset_ --> remove an specific field from document
+        - ```{ $unset: { occupation: "" } }```
+    - _$pop_ --> remove a single element from an array
+        - remove using array index (fixed position element remove) or 1 (last element remove) or -1 (first element remove)
+    - _$pull_ --> remove a single element from array that matches the value
+        - ```{ $pull: { friends: "Tanmoy Parvez" } }```
+    - _$pullAll_ --> remove multiple elements from array that matches the value
+        - ```{ $pullAll: { friends: ["Abdur Rakib", "Najmus Sakib"] } }```
