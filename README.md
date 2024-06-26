@@ -40,3 +40,41 @@
             }, {age: 1, gender: 1, interests: 1})
             .sort({age: 1})
     ```
+- Explicit **$and**
+```tsx
+db.test.find({
+        $and: [
+        { gender: "Female" },
+        { age: { $gt: 15 } },
+        { age: { $lte: 25 } }
+    ]
+}).project({
+    age: 1,
+    gender: 1
+}).sort({
+    age: 1
+})
+```
+- Explicit **$or**
+```tsx
+db.test.find({
+    $or: [
+        { interests: "Traveling" },
+        { interests: "Cooking" }
+    ]
+}).project({
+    interests: 1
+})
+```
+- Query in array of object using chaining
+```jsx
+db.test.find({
+    "skills.name": { $in: ["JAVASCRIPT", "PYTHON"]}
+}).project({
+    skills: 1,
+    age: 1
+})
+.sort({
+    age:1
+})
+```
