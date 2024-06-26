@@ -33,10 +33,10 @@
     - ```db.test.find({gender: "Female", age: { $gte: 18, $lte: 30 }}).sort({age: 1})```
     - ```tsx
         db.test.find(
-    {
-        gender: "Female",
-        age: { $nin: [18, 20, 22, 24, 26, 28, 30] },
-        interests: {$in: ["Cooking", "Gaming"]}
-    }, {age: 1, gender: 1, interests: 1})
-    .sort({age: 1})
+            {
+                gender: "Female",
+                age: { $nin: [18, 20, 22, 24, 26, 28, 30] },
+                interests: {$in: ["Cooking", "Gaming"]}
+            }, {age: 1, gender: 1, interests: 1})
+            .sort({age: 1})
     ```
